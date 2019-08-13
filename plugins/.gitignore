@@ -1,5 +1,2 @@
 # Removes .idea files
 *.idea
-
-# Removes out folders
-out
