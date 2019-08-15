@@ -24,19 +24,32 @@ public class ex1_PTC3492 implements PlugInFilter {
         float acum_2 = 0;
         float n = 0;
         float v;
+        float min = ipf2.getf(0, 0);
+        float max = ipf2.getf(0, 0);
+
         for (int i=0;i<w;i++) {
             for(int j=0; j<h; j++) {
                 n = n + 1;
                 v = ipf2.getf(i, j);
+                if (v < min) {
+                    min = v;
+                }
+                if (v > max) {
+                    max = v;
+                }
                 acum = acum + v;
                 acum_2 = acum_2 + v*v;
             }
         }
+
         float mean = acum/n;
         float sd = (float)Math.sqrt((acum_2/n) - mean*mean);
-        IJ.log("Media: "+ mean + "\nDP: " + sd);
+
+        IJ.log(
+                "Mean: "  + mean +
+                "\nstdDev: " + sd   +
+                "\nMax: "    + max  +
+                "\nMin: "    + min
+        );
     }
 }
-// Resultado sobre a imagem CT.dcm:
-// Media :  ~ -267.5
-// DP    : 	~ 188.5
