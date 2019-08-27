@@ -31,8 +31,8 @@ public class ex3_gradiente implements PlugInFilter {
 		double dx, dy;
 		float mod, ang;
 		
-		for (int i1=a; i1< (h-a) ;i1++) {
-			for(int j1=b; j1< (w-b) ; j1++) {
+		for (int i1=a; i1< (w-a) ;i1++) {
+			for(int j1=b; j1< (h-b) ; j1++) {
 				dx = 0;
 				dy = 0;
 				for (int i2=-a; i2<=a; i2++) {
